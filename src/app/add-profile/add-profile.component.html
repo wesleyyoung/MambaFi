@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>Upload</h1>
+<div mat-dialog-content>
+    <input multiple type="file" accept=".xml" [(ngModel)]="newProfile" observeFiles/>
+</div>
+<div mat-dialog-actions>
+    <span class="spacer"></span>
+    <button mat-button color="accent">CANCEL</button>
+    <button mat-raised-button color="primary" cdkFocusInitial [mat-dialog-close]="newProfile">ADD</button>
+</div>

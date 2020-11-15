@@ -1,0 +1,9 @@
+@font-face {
+    font-family: SrcSansProLight;
+    src: url(./SourceSansPro-Light.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: Vibur;
+    src: url(./Vibur-Regular.ttf) format("truetype");
+}

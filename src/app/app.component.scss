@@ -1,0 +1,17 @@
+@import '../styles.scss';
+
+.dark-toolbar {
+    background-color: $soft-dark;
+    color: $primary-txt-color;
+}
+
+.nav-bar {
+    position: fixed;
+    top: 0%;
+    width: 100%;
+}
+
+.logo-img {
+    height: 45px;
+    opacity: 0.5;
+}

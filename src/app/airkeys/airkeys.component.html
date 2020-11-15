@@ -1,0 +1,114 @@
+<mat-toolbar class="toolbar">
+    <button mat-fab class="tool-btn" color="primary" routerLink="../home">
+        <mat-icon aria-hidden="false" aria-label="home">home</mat-icon>
+    </button>
+    <mat-form-field appearance="outline" color="primary" class="search-box">
+        <mat-label>Search</mat-label>
+        <input matInput (keyup)="applyFilter($event.target.value)" color="accent" placeholder="Example: My Wifi">
+        <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+    <span class="spacer"></span>
+    <button mat-button class="tool-btn dropdown-tool-btn" [matMenuTriggerFor]="actions" [disabled]="!selection.hasValue()">
+        ACTIONS
+        <mat-icon>arrow_drop_down</mat-icon>
+    </button>
+    <mat-menu #actions="matMenu">
+        <button mat-menu-item (click)="exportSelected()">
+            <mat-icon aria-hidden="false" aria-label="delete">exit_to_app</mat-icon>
+            Export Selected Profile(s)
+        </button>
+        <button mat-menu-item (click)="deleteSelected()">
+            <mat-icon aria-hidden="false" aria-label="delete">delete_outline</mat-icon>
+            Delete Selected Profile(s)
+        </button>
+    </mat-menu>
+    <button mat-fab class="tool-btn" color="accent" (click)="refresh()">
+        <mat-icon aria-hidden="false" aria-label="refresh">refresh</mat-icon>
+    </button>
+    <button mat-fab class="tool-btn" color="accent" [matMenuTriggerFor]="menu">
+        <mat-icon aria-hidden="false" aria-label="options">more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="openFile()">
+            <mat-icon aria-hidden="false" aria-label="addProfile">add_box</mat-icon>
+            Add Profile From File
+        </button>
+        <button mat-menu-item (click)="addAllFromFolder()">
+            <mat-icon aria-hidden="false" aria-label="addFromFolder">library_add</mat-icon>
+            Add All Profiles From Folder
+        </button>
+        <button mat-menu-item (click)="exportAllProfiles()">
+            <mat-icon aria-hidden="false" aria-label="exportAllProfiles">exit_to_app</mat-icon>
+            Export All Profiles To...
+        </button>
+    </mat-menu>
+</mat-toolbar>
+<mat-divider class="full-width search-divider"></mat-divider>
+<div class="table-container" #profilesList>
+    <table mat-table matSort [dataSource]="profilesInfo" class="table">
+
+        <ng-container matColumnDef="select">
+            <th mat-header-cell *matHeaderCellDef>
+                <mat-checkbox (change)="$event ? masterToggle() : null"
+                    [checked]="selection.hasValue() && isAllSelected()"
+                    [indeterminate]="selection.hasValue() && !isAllSelected()" [aria-label]="checkboxLabel()"
+                    color="primary">
+                </mat-checkbox>
+            </th>
+            <td mat-cell *matCellDef="let row; let i = index">
+                <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? toggleRow(row) : null"
+                    [checked]="selection.isSelected(row)" [aria-label]="checkboxLabel(i, row)" color="primary">
+                </mat-checkbox>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="ssid">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> SSID </th>
+            <td mat-cell *matCellDef="let profile"> {{profile.ssid}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="key">
+            <th mat-header-cell *matHeaderCellDef> Key </th>
+            <td mat-cell *matCellDef="let profile"> {{profile.key}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="authentication">
+            <th mat-header-cell *matHeaderCellDef> Authentication </th>
+            <td mat-cell *matCellDef="let profile"> {{profile.authentication}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="encryption">
+            <th mat-header-cell *matHeaderCellDef> Encryption </th>
+            <td mat-cell *matCellDef="let profile"> {{profile.encryption}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="connectionMode">
+            <th mat-header-cell *matHeaderCellDef> Mode </th>
+            <td mat-cell *matCellDef="let profile"> {{profile.connectionMode}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="oneX">
+            <th mat-header-cell *matHeaderCellDef> One X </th>
+            <td mat-cell *matCellDef="let profile"> {{profile.useOneX}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="macRandom">
+            <th mat-header-cell *matHeaderCellDef> Random MAC </th>
+            <td mat-cell *matCellDef="let profile"> {{profile.macRandom}} </td>
+        </ng-container>
+
+        <!--
+        <ng-container matColumnDef="deleteProfile">
+            <th mat-header-cell *matHeaderCellDef> Delete </th>
+            <td mat-cell *matCellDef="let profile">
+                <button mat-button color="warn" (click)="deleteProfile(profile.ssid)">
+                    <mat-icon aria-hidden="false" aria-label="delete">delete_outline</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+    -->
+        <tr mat-header-row *matHeaderRowDef="displayCols"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayCols;"></tr>
+    </table>
+</div>
+<mat-paginator [pageSizeOptions]="[20, 35, 50]" showFirstLastButtons class="paginator"></mat-paginator>

@@ -1,0 +1,168 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+$soft-dark: #212121;
+$med-dark: rgb(20, 20, 20);
+
+$primary-color: #FE676E;
+$primary-txt-color: whitesmoke;
+
+/*$accent-color: #F97B4F;*/
+$accent-color: #FFBD71;
+$accent-txt-color: #212121;
+
+$warn-color: #d82a41;
+$warn-txt-color: #212121;
+
+$pop-color: #7be495;
+
+$pro-primary: (
+    50: $primary-color,
+    100: $primary-color,
+    200: $primary-color,
+    300: $primary-color,
+    400: $primary-color,
+    500: $primary-color,
+    600: $primary-color,
+    700: $primary-color,
+    800: $primary-color,
+    900: $primary-color,
+    A100: $primary-color,
+    A200: $primary-color,
+    A400: $primary-color,
+    A700: $primary-color,
+    contrast: (
+      50: $primary-txt-color,
+      100: $primary-txt-color,
+      200: $primary-txt-color,
+      300: $primary-txt-color,
+      400: $primary-txt-color,
+      500: $primary-txt-color,
+      600: $primary-txt-color,
+      700: $primary-txt-color,
+      800: $primary-txt-color,
+      900: $primary-txt-color,
+      A100: $primary-txt-color,
+      A200: $primary-txt-color,
+      A400: $primary-txt-color,
+      A700: $primary-txt-color,
+    )
+  );
+$pro-accent: (
+  50: $accent-color,
+    100: $accent-color,
+    200: $accent-color,
+    300: $accent-color,
+    400: $accent-color,
+    500: $accent-color,
+    600: $accent-color,
+    700: $accent-color,
+    800: $accent-color,
+    900: $accent-color,
+    A100: $accent-color,
+    A200: $accent-color,
+    A400: $accent-color,
+    A700: $accent-color,
+    contrast: (
+      50: $accent-txt-color,
+      100: $accent-txt-color,
+      200: $accent-txt-color,
+      300: $accent-txt-color,
+      400: $accent-txt-color,
+      500: $accent-txt-color,
+      600: $accent-txt-color,
+      700: $accent-txt-color,
+      800: $accent-txt-color,
+      900: $accent-txt-color,
+      A100: $accent-txt-color,
+      A200: $accent-txt-color,
+      A400: $accent-txt-color,
+      A700: $accent-txt-color,
+    )
+  );
+  $pro-warn: (
+    50: $warn-color,
+    100: $warn-color,
+    200: $warn-color,
+    300: $warn-color,
+    400: $warn-color,
+    500: $warn-color,
+    600: $warn-color,
+    700: $warn-color,
+    800: $warn-color,
+    900: $warn-color,
+    A100: $warn-color,
+    A200: $warn-color,
+    A400: $warn-color,
+    A700: $warn-color,
+    contrast: (
+      50: $warn-txt-color,
+      100: $warn-txt-color,
+      200: $warn-txt-color,
+      300: $warn-txt-color,
+      400: $warn-txt-color,
+      500: $warn-txt-color,
+      600: $warn-txt-color,
+      700: $warn-txt-color,
+      800: $warn-txt-color,
+      900: $warn-txt-color,
+      A100: $warn-txt-color,
+      A200: $warn-txt-color,
+      A400: $warn-txt-color,
+      A700: $warn-txt-color,
+    )
+  );
+
+$wifoo-primary: mat-palette($pro-primary);
+$wifoo-accent: mat-palette($pro-accent);
+$wifoo-warn: mat-palette($pro-warn);
+
+$wifoo-theme: mat-light-theme($wifoo-primary, $wifoo-accent, $wifoo-warn);
+
+@include angular-material-theme($wifoo-theme);
+
+html, body {
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.transparent-bg {
+    background-color: transparent !important;
+}
+
+.sans-pro-light {
+  font-family: SrcSansProLight;
+}
+
+.vibur {
+  font-family: Vibur;
+}
+
+.title {
+  font-family: Vibur;
+  font-size: 32px;
+}
+
+.soft-dark {
+  color: #212121;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $accent-color;
+  outline: 1px solid $accent-color;
+}

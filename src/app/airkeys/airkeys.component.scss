@@ -1,0 +1,66 @@
+@import '../../styles.scss';
+
+table {
+    width: 100%;
+}
+
+.full-width {
+    width: 100% !important;
+}
+
+.padding-lr-15 {
+    padding: auto 15px auto 15px;
+}
+
+.paginator {
+    position: fixed;
+    top: calc(100% - 56px);
+    width: 100%;
+}
+
+.search-box {
+    padding-top: 0;
+    height: 56px !important;
+    display: inline-flex;
+    margin-top: -.6em;
+    font-size: 16px !important;
+}
+
+.search-box > div > div {
+    height: 56px !important;
+}
+
+.toolbar {
+    height: 84px !important;
+    background-color: white;
+}
+
+.tool-btn {
+    margin-right: 5px;
+}
+
+.dropdown-tool-btn {
+    padding-right: 0 !important;
+}
+
+.actions-box {
+    display: flex;
+    height: 45px;
+    padding-right: 25px;
+    padding-top: 8px;
+}
+
+.search-divider {
+    position: fixed;
+    top: 85px;
+    z-index: 50;
+}
+
+.table-container {
+    position: fixed;
+    width: 100%;
+    top: 84px;
+    box-shadow: none !important;
+    overflow-y: scroll !important;
+    max-height: calc(100vh - (84px + 56px));
+}

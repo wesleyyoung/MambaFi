@@ -1,0 +1,27 @@
+<!--<mat-toolbar color="accent" class="nav-bar">
+    <mat-toolbar-row>
+        <img src="./assets/imgs/logo-sm.png" class="logo-img">
+        <span class="spacer"></span>
+        <button mat-fab color="accent" (click)="refresh()">
+            <mat-icon aria-hidden="false" aria-label="refresh">refresh</mat-icon>
+        </button>
+        <button mat-fab color="accent" [matMenuTriggerFor]="menu">
+            <mat-icon aria-hidden="false" aria-label="refresh">more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="openFile()">
+                <mat-icon aria-hidden="false" aria-label="addProfile">add_box</mat-icon>
+                Add Profile From File
+            </button>
+            <button mat-menu-item (click)="addAllFromFolder()">
+                <mat-icon aria-hidden="false" aria-label="addFromFolder">library_add</mat-icon>
+                Add All Profiles From Folder
+            </button>
+            <button mat-menu-item (click)="exportAllProfiles()">
+                <mat-icon aria-hidden="false" aria-label="exportAllProfiles">exit_to_app</mat-icon>
+                Export All Profiles To...
+            </button>
+        </mat-menu>
+    </mat-toolbar-row>
+</mat-toolbar>-->
+<router-outlet></router-outlet>
