@@ -12,6 +12,8 @@ airkeys.pfx
 
 # dependencies
 /node_modules
+/wifi_data
+/wifi_profiles
 
 # profiling files
 chrome-profiler-events*.json
