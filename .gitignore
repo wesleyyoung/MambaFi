@@ -15,6 +15,8 @@ airkeys.pfx
 /wifi_data
 /wifi_profiles
 
+build-installer.js
+
 # profiling files
 chrome-profiler-events*.json
 speed-measure-plugin*.json
