@@ -13,8 +13,10 @@ const userDataDir = process.env.APPDATA || (process.platform === 'darwin' ? proc
 const wifi_date_dir = `${userDataDir}\\mambafi\\wifi_data`;
 const wifi_profiles_dir = `${userDataDir}\\mambafi\\wifi_profiles`;
 
-fs.mkdirSync(wifi_date_dir);
-fs.mkdirSync(wifi_profiles_dir);
+try {
+    fs.mkdirSync(wifi_date_dir);
+    fs.mkdirSync(wifi_profiles_dir);
+} catch (e) {}
 
 function generateWlanReports() {
     exec(`netsh wlan show drivers > ${wifi_date_dir}\\drivers.txt 2> ${wifi_date_dir}\\errors.log`, (err, stdout, stderr) => {

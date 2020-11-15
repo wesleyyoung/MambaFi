@@ -19,7 +19,7 @@
         "electron": "electron .",
         "build": "ng build",
         "build-win-pkg": "ng build --prod && electron-packager . mambafi --platform win32 --arch x64 --out ../dist/ --overwrite --prune=true",
-        "setup-win": "ng build --prod && electron-packager . mambafi --platform win32 --arch x64 --out C:\\dist --overwrite --prune=true --asar --icon=./src/assets/imgs/logo_icon.ico",
+        "setup-win": "electron-packager . mambafi --platform win32 --arch x64 --ignore=\".git(ignore|modules)|^/src|build-installer.js|airkeys.pfx|tsconfig(.app.json|.json|.spec.json)|tslint.json|^/.idea|^/e2e|.editorconfig|angular.json|karma.conf.js\" --out C:\\dist --overwrite --prune=true --asar --icon=./src/assets/imgs/logo_icon.ico",
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e"
