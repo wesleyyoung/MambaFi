@@ -8,8 +8,13 @@ module.exports.clearProfileCache = clearProfileCache;
 module.exports.clearReportCache = clearReportCache;
 module.exports.getProfiles = getProfiles;
 
-const wifi_date_dir = `${__dirname}\\..\\wifi_data`;
-const wifi_profiles_dir = `${__dirname}\\..\\wifi_profiles`;
+const userDataDir = process.env.APPDATA || (process.platform === 'darwin' ? process.env.HOME + '/Library/Preferences' : process.env.HOME + "/.local/share");
+
+const wifi_date_dir = `${userDataDir}\\mambafi\\wifi_data`;
+const wifi_profiles_dir = `${userDataDir}\\mambafi\\wifi_profiles`;
+
+fs.mkdirSync(wifi_date_dir);
+fs.mkdirSync(wifi_profiles_dir);
 
 function generateWlanReports() {
     exec(`netsh wlan show drivers > ${wifi_date_dir}\\drivers.txt 2> ${wifi_date_dir}\\errors.log`, (err, stdout, stderr) => {
